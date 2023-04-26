@@ -1,11 +1,13 @@
 const pg = require('pg');
 require('dotenv').config()
 
-const database = new pg.Client({
-     user:     process.env.USER,
-     password: process.env.PASSWORD,
-     host:     process.env.HOST,
-});
+// const database = new pg.Client({
+//      user:     process.env.USER,
+//      password: process.env.PASSWORD,
+//      host:     process.env.HOST,
+// });
+
+const database = new pg.Client(process.env.URL);
 
 database.connect((erro)=>{
      if(erro) console.log('Não foi possível conectar-se ao banco de dados');
